@@ -1,0 +1,6 @@
+a {
+  color: inherit;
+}
+button:focus {
+  box-shadow: none !important;
+}
