@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
-import "./styles/globals.css";
+//import "bootstrap/dist/css/bootstrap.css";
+import "./styles/globals.scss";
 import Index from "./pages/Index";
 import Calculator from "./pages/Calculator";
 

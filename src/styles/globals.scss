@@ -1,0 +1,18 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+a {
+  color: inherit;
+}
+button:focus {
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  &:focus {
+    background-color: $blue;
+    border: $btn-border-width solid transparent;
+    box-shadow: none;
+  }
+  &:hover {
+    background-color: $blue-600;
+  }
+}
