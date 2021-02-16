@@ -6,6 +6,9 @@ import data from "../data.json";
 
 export default function DonutChart() {
   const actualRiskLevel = useSelector((state) => state.riskLevel);
+  const actualRiskLevelObj = data.riskLevels.find(
+    (riskObj) => riskObj.level === actualRiskLevel
+  );
   return (
     <div className="d-flex justify-content-center">
       <Doughnut
@@ -33,11 +36,11 @@ export default function DonutChart() {
               data:
                 typeof actualRiskLevel == "number"
                   ? [
-                      data.riskLevels[actualRiskLevel - 1].bonds,
-                      data.riskLevels[actualRiskLevel - 1].large_cap,
-                      data.riskLevels[actualRiskLevel - 1].mid_cap,
-                      data.riskLevels[actualRiskLevel - 1].foreign,
-                      data.riskLevels[actualRiskLevel - 1].small_cap,
+                      actualRiskLevelObj.bonds,
+                      actualRiskLevelObj.large_cap,
+                      actualRiskLevelObj.mid_cap,
+                      actualRiskLevelObj.foreign,
+                      actualRiskLevelObj.small_cap,
                     ]
                   : [100],
               backgroundColor: [
