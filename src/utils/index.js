@@ -1,4 +1,5 @@
 import recordedTransfers from "./recordTransfers";
+import data from "../data.json";
 const regexNumberMaxTwoFloatingPoints = /^[0-9]+[.]{0,1}[0-9]{0,2}$/;
 const floorTo2Digits = (num) => Math.floor((num + Number.EPSILON) * 100) / 100;
 const roundTo2Digits = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
@@ -38,7 +39,7 @@ const checkAllValuesInPortfolioCanBeNumbers = (portfolio) => {
   return result;
 };
 
-const calculatePortfolio = (portfolio, setPortfolio, actualRiskLevelObj) => {
+const calculatePortfolio = (portfolio, currentRiskLevel) => {
   if (!checkAllValuesInPortfolioCanBeNumbers(portfolio)) {
     return;
   }
@@ -48,10 +49,10 @@ const calculatePortfolio = (portfolio, setPortfolio, actualRiskLevelObj) => {
   }
   total = roundTo2Digits(total);
   // We define a newObj which will be the new portfolio object
-  const newObj = {};
-  for (let key in portfolio) {
-    newObj[key] = portfolio[key];
-  }
+  const newObj = { ...portfolio };
+  const actualRiskLevelObj = data.riskLevels.find(
+    (riskObj) => riskObj.level === currentRiskLevel
+  );
   for (let key in newObj.portfolio) {
     newObj.portfolio[key] = {
       ...newObj.portfolio[key],
@@ -83,7 +84,7 @@ const calculatePortfolio = (portfolio, setPortfolio, actualRiskLevelObj) => {
     };
   }
   newObj.arr = recordedTransfers(newObj.portfolio, riskLevelLabelMapper);
-  setPortfolio(() => newObj);
+  return newObj;
 };
 
 export {

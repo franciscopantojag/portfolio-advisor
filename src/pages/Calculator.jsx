@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import CalculatorTable from "../components/CalculatorTable";
 import SingleRiskLevelTable from "../components/SingleRiskLevelTable";
-import data from "../data.json";
+
 import {
   checkAllValuesInPortfolioCanBeNumbers,
   initialPortfolio,
@@ -12,9 +12,6 @@ import {
 export default function Calculator() {
   const [portfolio, setPortfolio] = useState(initialPortfolio);
   const actualRiskLevel = useSelector((state) => state.riskLevel);
-  const actualRiskLevelObj = data.riskLevels.find(
-    (riskObj) => riskObj.level === actualRiskLevel
-  );
 
   return (
     <div className="my-4 px-3">
@@ -28,13 +25,11 @@ export default function Calculator() {
             <div className="d-flex align-items-start">
               <h4 className="my-auto">Please Enter Your Current Portfolio</h4>
               <button
-                onClick={() => {
-                  calculatePortfolio(
-                    portfolio,
-                    setPortfolio,
-                    actualRiskLevelObj
-                  );
-                }}
+                onClick={() =>
+                  setPortfolio((prevPortfolio) =>
+                    calculatePortfolio(prevPortfolio, actualRiskLevel)
+                  )
+                }
                 className={`btn btn-primary ms-auto my-2${
                   checkAllValuesInPortfolioCanBeNumbers(portfolio)
                     ? ""
