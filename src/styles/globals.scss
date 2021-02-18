@@ -17,5 +17,67 @@ button:focus {
   }
 }
 .App {
-  min-width: 615px;
+  min-width: 494px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.riskLevelBarButton {
+  width: 45px;
+  height: 45px;
+  font-size: 1.3rem;
+}
+.top-2point2rem-negative {
+  top: -2.2rem;
+}
+.continue-button {
+  font-size: 1.3rem;
+}
+.recommendationsCell {
+  min-height: 15rem;
+  width: 230px;
+  li {
+    max-width: 150px;
+  }
+}
+.paragraphNumberCalculatorTable {
+  min-width: 5rem;
+  min-height: 34px;
+  max-width: 7rem;
+}
+.tablesContainerCalcPage {
+  max-width: 710px;
+}
+.inputCalculatorDiv {
+  input {
+    max-width: 5.5rem;
+    min-width: 4.5rem;
+    height: 34px;
+  }
+}
+.max-w-700 {
+  max-width: 700px;
+}
+@media (max-width: 655px) {
+  .inputCalculatorDiv {
+    flex-wrap: wrap;
+  }
+  .tablesContainerCalcPage {
+    max-width: 550px;
+  }
+  .recommendationsCell {
+    width: 190px;
+  }
+}
+@media (max-width: 690px) {
+  .riskLevelBarButton {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  .continue-button {
+    font-size: inherit;
+    padding: 0 0.5rem;
+    display: flex;
+  }
 }

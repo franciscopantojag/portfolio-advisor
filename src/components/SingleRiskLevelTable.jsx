@@ -11,7 +11,7 @@ export default function SingleRiskLevelTable() {
     <table className="table table-bordered mb-4">
       <thead>
         <tr className="table-light text-end">
-          <th scope="col" style={{ textAlign: "center" }}>
+          <th className="text-center" scope="col">
             Level
           </th>
           {data.Investment_Categories.map((invCategory, index) => (
@@ -23,7 +23,7 @@ export default function SingleRiskLevelTable() {
       </thead>
       <tbody>
         <tr className="text-end">
-          <th scope="row" style={{ textAlign: "center" }}>
+          <th scope="row" className="text-center">
             {actualRiskLevelObj.level}
           </th>
           <td>{actualRiskLevelObj.bonds}</td>

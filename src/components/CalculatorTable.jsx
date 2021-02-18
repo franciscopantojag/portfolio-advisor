@@ -1,6 +1,9 @@
 import React from "react";
 import data from "../data.json";
-import { lavelRiskLevelMapper } from "../utils";
+import {
+  labelRiskLevelMapper,
+  regexNumberMaxTwoFloatingPoints,
+} from "../utils";
 
 export default function CalculatorTable({ portfolio, setPortfolio }) {
   const currentPortfolioKeys = [
@@ -10,23 +13,28 @@ export default function CalculatorTable({ portfolio, setPortfolio }) {
     "Recommendations",
   ];
   const handleChange = (portfolioProp, event) => {
+    const value = event.target.value;
+    const regex = regexNumberMaxTwoFloatingPoints;
+    if (!regex.test(value)) {
+      return;
+    }
     setPortfolio((prev) => ({
       ...prev,
       portfolio: {
         ...prev.portfolio,
         [portfolioProp]: {
           ...prev.portfolio[portfolioProp],
-          old: event.target.value,
+          old: value,
         },
       },
     }));
   };
   return (
-    <table className="table table-bordered text-center my-3">
+    <table className="table table-bordered text-center mt-2 mb-3">
       <thead>
         <tr className="table-light text-center">
           {currentPortfolioKeys.map((key, index) => (
-            <th key={index}>
+            <th className="align-middle" key={index}>
               {key.toString().toLowerCase() === "current amount"
                 ? `${key} ($)`
                 : key}
@@ -37,89 +45,62 @@ export default function CalculatorTable({ portfolio, setPortfolio }) {
       <tbody>
         {data.Investment_Categories.map((category, index, arr) => (
           <tr key={index}>
-            <th
-              scope="row"
-              style={{
-                minWidth: "12rem",
-                verticalAlign: "middle",
-                textAlign: "left",
-              }}
-            >
-              <div className="d-flex justify-content-between align-items-start">
-                <span className="my-auto me-3"> {category}</span>{" "}
+            <th className="align-middle text-start" scope="row">
+              <div className="d-flex justify-content-between align-items-start inputCalculatorDiv">
+                <span className="my-auto me-3"> {category}:</span>{" "}
                 <input
                   onChange={(e) =>
-                    handleChange(lavelRiskLevelMapper[category], e)
+                    handleChange(labelRiskLevelMapper[category], e)
                   }
                   value={
-                    portfolio.portfolio[lavelRiskLevelMapper[category]].old
+                    portfolio.portfolio[labelRiskLevelMapper[category]].old
                   }
-                  style={{ maxWidth: "6rem", height: "34px" }}
                   type="text"
-                  className="form-control my-auto"
+                  className="form-control my-auto p-2"
                 />
               </div>
             </th>
-            <td style={{ verticalAlign: "middle" }}>
+            <td className="align-middle">
               <p
-                style={{
-                  minWidth: "7rem",
-                  minHeight: "34px",
-                  maxWidth: "8rem",
-                  overflow: "auto",
-                }}
-                className={`p-1 border border-1 rounded my-auto bg-light mx-auto${
-                  typeof portfolio.portfolio[lavelRiskLevelMapper[category]]
+                className={`p-1 border border-1 rounded my-auto bg-light mx-auto overflow-auto paragraphNumberCalculatorTable${
+                  typeof portfolio.portfolio[labelRiskLevelMapper[category]]
                     .difference === "number"
-                    ? portfolio.portfolio[lavelRiskLevelMapper[category]]
+                    ? portfolio.portfolio[labelRiskLevelMapper[category]]
                         .difference < 0
                       ? " text-danger"
-                      : portfolio.portfolio[lavelRiskLevelMapper[category]]
+                      : portfolio.portfolio[labelRiskLevelMapper[category]]
                           .difference > 0
                       ? " text-success"
                       : ""
                     : ""
                 }`}
               >
-                {typeof portfolio.portfolio[lavelRiskLevelMapper[category]]
+                {typeof portfolio.portfolio[labelRiskLevelMapper[category]]
                   .difference === "number"
-                  ? portfolio.portfolio[lavelRiskLevelMapper[category]]
+                  ? portfolio.portfolio[labelRiskLevelMapper[category]]
                       .difference > 0
                     ? `+${portfolio.portfolio[
-                        lavelRiskLevelMapper[category]
+                        labelRiskLevelMapper[category]
                       ].difference.toFixed(2)}`
                     : portfolio.portfolio[
-                        lavelRiskLevelMapper[category]
+                        labelRiskLevelMapper[category]
                       ].difference.toFixed(2)
                   : ""}
               </p>
             </td>
-            <td style={{ verticalAlign: "middle" }}>
-              <p
-                style={{
-                  minWidth: "7rem",
-                  minHeight: "34px",
-                  maxWidth: "8rem",
-                  overflow: "auto",
-                }}
-                className="p-1 border border-1 rounded my-auto bg-light mx-auto"
-              >
-                {typeof portfolio.portfolio[lavelRiskLevelMapper[category]]
+            <td className="align-middle">
+              <p className="p-1 border border-1 rounded my-auto bg-light mx-auto overflow-auto paragraphNumberCalculatorTable">
+                {typeof portfolio.portfolio[labelRiskLevelMapper[category]]
                   .new === "number"
                   ? portfolio.portfolio[
-                      lavelRiskLevelMapper[category]
+                      labelRiskLevelMapper[category]
                     ].new.toFixed(2)
                   : ""}
               </p>
             </td>
             {index === 0 ? (
               <td
-                className="border border-1 rounded p-3 m-auto"
-                style={{
-                  verticalAlign: "middle",
-                  minHeight: "15rem",
-                  maxWidth: "160px",
-                }}
+                className="border border-1 rounded p-3 m-auto recommendationsCell"
                 rowSpan={arr.length}
               >
                 <ul className="mb-0 text-start ps-3">
@@ -127,11 +108,11 @@ export default function CalculatorTable({ portfolio, setPortfolio }) {
                     ? portfolio.arr.map((a, index, thisArr) => (
                         <li
                           className={`${
-                            index === thisArr.length - 1 ? "" : "mb-2"
+                            index === thisArr.length - 1 ? "" : " mb-2"
                           }`}
                           key={index}
                         >
-                          {a}
+                          <span className="overflow-auto">{a}</span>
                         </li>
                       ))
                     : ""}

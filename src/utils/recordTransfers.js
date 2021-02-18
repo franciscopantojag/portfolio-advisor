@@ -1,7 +1,7 @@
 const highFunction = (portfolio, riskLevelLabelMapper) => {
-  const newAmmounts = [];
+  const newamounts = [];
   for (let key in portfolio) {
-    newAmmounts.push(Number(portfolio[key].new));
+    newamounts.push(Number(portfolio[key].new));
   }
 
   const differences = [];
@@ -109,17 +109,16 @@ const highFunction = (portfolio, riskLevelLabelMapper) => {
       });
       const surplusIdx = newDifferences.indexOf(amount);
 
-      const largestAmount = Math.max(...newAmmounts);
+      const largestAmount = Math.max(...newamounts);
 
       let deficitIdx = void 0;
-      newAmmounts.forEach(function (el, idx) {
+      newamounts.forEach(function (el, idx) {
         if (parseFloat(el) === largestAmount) {
           deficitIdx = idx;
         }
       });
 
-      newAmmounts[deficitIdx] =
-        Math.round(100 * (largestAmount - amount)) / 100;
+      newamounts[deficitIdx] = Math.round(100 * (largestAmount - amount)) / 100;
 
       const newDif =
         largestAmount -

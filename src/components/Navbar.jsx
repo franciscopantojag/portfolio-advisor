@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="bg-dark text-white" style={{ minWidth: "672px" }}>
+    <nav className="bg-dark text-white">
       <div className="container">
         <div className="p-3">
           <div className="position-relative">

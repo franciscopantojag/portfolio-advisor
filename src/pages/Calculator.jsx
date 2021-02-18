@@ -12,7 +12,9 @@ import {
 export default function Calculator() {
   const [portfolio, setPortfolio] = useState(initialPortfolio);
   const actualRiskLevel = useSelector((state) => state.riskLevel);
-  const actualRiskLevelObj = data.riskLevels[actualRiskLevel - 1];
+  const actualRiskLevelObj = data.riskLevels.find(
+    (riskObj) => riskObj.level === actualRiskLevel
+  );
 
   return (
     <div className="my-4 px-3">
@@ -20,10 +22,7 @@ export default function Calculator() {
 
       {actualRiskLevel ? (
         <>
-          <div
-            className="mx-auto"
-            style={{ maxWidth: "800px", minWidth: "615px" }}
-          >
+          <div className="mx-auto tablesContainerCalcPage">
             <h4>Risk Level {actualRiskLevel}</h4>
             <SingleRiskLevelTable />
             <div className="d-flex align-items-start">

@@ -1,4 +1,5 @@
 import recordedTransfers from "./recordTransfers";
+const regexNumberMaxTwoFloatingPoints = /^[0-9]+[.]{0,1}[0-9]{0,2}$/;
 const floorTo2Digits = (num) => Math.floor((num + Number.EPSILON) * 100) / 100;
 const roundTo2Digits = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
 const riskLevelLabelMapper = {
@@ -8,10 +9,11 @@ const riskLevelLabelMapper = {
   foreign: "Foreign",
   small_cap: "Small Cap",
 };
-const lavelRiskLevelMapper = {};
+const labelRiskLevelMapper = {};
 for (let key in riskLevelLabelMapper) {
-  lavelRiskLevelMapper[riskLevelLabelMapper[key].toString()] = key;
+  labelRiskLevelMapper[riskLevelLabelMapper[key].toString()] = key;
 }
+// arr will be the array of recommendations for the new portfolio
 const initialPortfolio = {
   portfolio: {},
   arr: null,
@@ -25,7 +27,7 @@ for (let key in riskLevelLabelMapper) {
 }
 
 const checkAllValuesInPortfolioCanBeNumbers = (portfolio) => {
-  const regex = /^[0-9]+[.]{0,1}[0-9]{0,2}$/;
+  const regex = regexNumberMaxTwoFloatingPoints;
   let result = true;
   for (let key in portfolio.portfolio) {
     if (!regex.test(portfolio.portfolio[key].old.toString())) {
@@ -45,6 +47,7 @@ const calculatePortfolio = (portfolio, setPortfolio, actualRiskLevelObj) => {
     total += Number(portfolio.portfolio[key].old);
   }
   total = roundTo2Digits(total);
+  // We define a newObj which will be the new portfolio object
   const newObj = {};
   for (let key in portfolio) {
     newObj[key] = portfolio[key];
@@ -62,14 +65,14 @@ const calculatePortfolio = (portfolio, setPortfolio, actualRiskLevelObj) => {
   newTotal = roundTo2Digits(newTotal);
   const diff = roundTo2Digits(total - newTotal);
   const portfolioKeys = Object.keys(newObj.portfolio);
-  for (let i = 0; i < portfolioKeys.length; i++) {
-    if (i === portfolioKeys.length - 1) {
-      newObj.portfolio[portfolioKeys[i]] = {
-        ...newObj.portfolio[portfolioKeys[i]],
-        new: roundTo2Digits(newObj.portfolio[portfolioKeys[i]].new + diff),
-      };
-    }
-  }
+  // We add the difference to the last value of new amount
+  newObj.portfolio[portfolioKeys[portfolioKeys.length - 1]] = {
+    ...newObj.portfolio[portfolioKeys[portfolioKeys.length - 1]],
+    new: roundTo2Digits(
+      newObj.portfolio[portfolioKeys[portfolioKeys.length - 1]].new + diff
+    ),
+  };
+
   // calculate difference
   for (let key in newObj.portfolio) {
     newObj.portfolio[key] = {
@@ -85,8 +88,9 @@ const calculatePortfolio = (portfolio, setPortfolio, actualRiskLevelObj) => {
 
 export {
   riskLevelLabelMapper,
-  lavelRiskLevelMapper,
+  labelRiskLevelMapper,
   initialPortfolio,
   checkAllValuesInPortfolioCanBeNumbers,
   calculatePortfolio,
+  regexNumberMaxTwoFloatingPoints,
 };

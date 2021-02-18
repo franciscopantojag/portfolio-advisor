@@ -12,9 +12,9 @@ export default function DonutChart() {
   return (
     <div className="d-flex justify-content-center">
       <Doughnut
-        height={500}
-        width={500}
         plugins={[ChartDataLabels]}
+        width={400}
+        height={400}
         options={{
           responsive: false,
           legend: {

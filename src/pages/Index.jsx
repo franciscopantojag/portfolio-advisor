@@ -13,19 +13,18 @@ export default function Index() {
         Please select a risk level for your portfolio
       </h3>
       <RiskLevelBar />
-      <div
-        className="mt-4 position-relative mx-auto px-5"
-        style={{ maxWidth: "900px", minWidth: "580px" }}
-      >
-        <button
-          onClick={() => toggleTable()}
-          className="btn btn-primary position-absolute top-0 end-0"
-        >
-          Toggle
-        </button>
-        <div className="px-5" style={{ minWidth: "500px" }}>
-          {table ? <RiskLevelTable /> : <DonutChart />}
+      <div className="mt-4 position-relative mx-auto max-w-700">
+        <div className="d-flex justify-content-between align-items-end mb-3">
+          <h3 className="mb-0">Distribution</h3>
+          <button
+            onClick={() => toggleTable()}
+            className="btn btn-primary top-0 end-0"
+          >
+            Toggle
+          </button>
         </div>
+
+        <div>{table ? <RiskLevelTable /> : <DonutChart />}</div>
       </div>
     </div>
   );

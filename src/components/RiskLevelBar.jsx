@@ -9,39 +9,32 @@ export default function RiskLevelBar() {
   const dispatch = useDispatch();
   const numButtons = {
     arr: data.riskLevels.map((riskLevel) => riskLevel.level),
-    click: (index) => dispatch(setRiskLevel(index)),
+    click: (riskLevel) => dispatch(setRiskLevel(riskLevel)),
   };
   return (
     <div className="d-flex">
       <div className="mx-auto d-flex mt-3 pt-4">
         {numButtons.arr.map((buttonLabel, index, arr) => (
           <button
-            className={`btn btn-outline-dark d-flex justify-content-start align-items-start p-0 mx-1${
+            className={`btn btn-outline-dark p-0 mx-1 riskLevelBarButton${
               index === 0 || index === arr.length - 1
                 ? " position-relative"
                 : ""
             }${riskLevel === buttonLabel ? " btn-dark text-white" : ""}`}
-            style={{ width: "45px", height: "45px", fontSize: "1.3rem" }}
             key={index}
             onClick={() => {
               numButtons.click(buttonLabel);
             }}
           >
             {buttonLabel === 1 ? (
-              <span
-                className="position-absolute left-0 text-warning"
-                style={{ top: "-2.2rem" }}
-              >
+              <span className="position-absolute start-0 text-warning top-2point2rem-negative">
                 Low
               </span>
             ) : (
               ""
             )}
             {buttonLabel === arr.length ? (
-              <span
-                className="position-absolute right-0 text-danger"
-                style={{ top: "-2.2rem" }}
-              >
+              <span className="position-absolute end-0 text-danger top-2point2rem-negative">
                 High
               </span>
             ) : (
@@ -52,10 +45,9 @@ export default function RiskLevelBar() {
         ))}
         <Link
           to="/calculator"
-          className={`btn btn-primary d-flex justify-content-start align-items-start mx-2${
+          className={`btn btn-primary mx-2 continue-button${
             riskLevel ? "" : " disabled"
           }`}
-          style={{ fontSize: "1.3rem" }}
         >
           <p className="my-auto mx-auto">Continue</p>
         </Link>
