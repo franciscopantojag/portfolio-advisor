@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import data from "../data.json";
 import { State } from "../types";
+import { investmentCategories } from "../utils";
 
 export default function SingleRiskLevelTable() {
   const actualRiskLevel = useSelector((state: State) => state.riskLevel);
@@ -15,7 +16,7 @@ export default function SingleRiskLevelTable() {
           <th className="text-center" scope="col">
             Level
           </th>
-          {data.Investment_Categories.map((invCategory, index) => (
+          {investmentCategories.map((invCategory, index) => (
             <th key={index} scope="col">
               <span>{invCategory} %</span>
             </th>

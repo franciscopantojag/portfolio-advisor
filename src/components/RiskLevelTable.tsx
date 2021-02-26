@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setRiskLevel } from "../redux/actions";
 import data from "../data.json";
 import { State } from "../types";
+import { investmentCategories } from "../utils";
 
 export default function RiskLevelTable() {
   const actualRiskLevel = useSelector((state: State) => state.riskLevel);
@@ -16,7 +17,7 @@ export default function RiskLevelTable() {
           <th className="text-start align-middle" scope="col">
             Level
           </th>
-          {data.Investment_Categories.map((invCategory, index) => (
+          {investmentCategories.map((invCategory, index) => (
             <th className="align-middle" key={index} scope="col">
               <span>{invCategory} %</span>
             </th>

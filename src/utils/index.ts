@@ -1,7 +1,16 @@
 import { EntirePortfolio, Json, Portfolio, SwapPortfolio } from "../types";
 import data from "../data.json";
 import recordedTransfers from "./recordTransfers";
-
+function stringLiterals<T extends string>(...args: T[]): T[] {
+  return args;
+}
+const investmentCategories = stringLiterals(
+  "Bonds",
+  "Large Cap",
+  "Mid Cap",
+  "Foreign",
+  "Small Cap"
+);
 const regexNumberMaxTwoFloatingPoints = /^[0-9]+[.]{0,1}[0-9]{0,2}$/;
 const floorTo2Digits = (num: number) =>
   Math.floor((num + Number.EPSILON) * 100) / 100;
@@ -116,4 +125,6 @@ export {
   floorTo2Digits,
   roundTo2Digits,
   swap,
+  stringLiterals,
+  investmentCategories,
 };

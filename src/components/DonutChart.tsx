@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import data from "../data.json";
 import { State } from "../types";
+import { investmentCategories } from "../utils";
 
 export default function DonutChart() {
   const actualRiskLevel = useSelector((state: State) => state.riskLevel);
@@ -54,9 +55,7 @@ export default function DonutChart() {
           ],
           labels:
             typeof actualRiskLevel == "number"
-              ? data.Investment_Categories.map(
-                  (invCategory, index) => invCategory
-                )
+              ? investmentCategories.map((invCategory, index) => invCategory)
               : ["select a risk level"],
         }}
       />

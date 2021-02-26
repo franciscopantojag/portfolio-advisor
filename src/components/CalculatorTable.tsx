@@ -4,24 +4,13 @@ import { EntirePortfolio } from "../types";
 import {
   labelRiskLevelMapper,
   regexNumberMaxTwoFloatingPoints,
+  investmentCategories,
 } from "../utils";
 
 const CalculatorTable: React.FC<{
   portfolio: EntirePortfolio;
   setPortfolio: React.Dispatch<React.SetStateAction<EntirePortfolio>>;
 }> = ({ portfolio, setPortfolio }) => {
-  function stringLiterals<T extends string>(...args: T[]): T[] {
-    return args;
-  }
-
-  const values = stringLiterals(
-    "Bonds",
-    "Large Cap",
-    "Mid Cap",
-    "Foreign",
-    "Small Cap"
-  );
-
   const currentPortfolioKeys = [
     "Current Amount",
     "Difference",
@@ -62,7 +51,7 @@ const CalculatorTable: React.FC<{
         </tr>
       </thead>
       <tbody>
-        {values.map((category, index, arr) => (
+        {investmentCategories.map((category, index, arr) => (
           <tr key={index}>
             <th className="align-middle text-start" scope="row">
               <div className="d-flex justify-content-between align-items-start inputCalculatorDiv">

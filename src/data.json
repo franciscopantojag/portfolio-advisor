@@ -1,11 +1,4 @@
 {
-  "Investment_Categories": [
-    "Bonds",
-    "Large Cap",
-    "Mid Cap",
-    "Foreign",
-    "Small Cap"
-  ],
   "riskLevels": [
     {
       "level": 1,
