@@ -2,11 +2,13 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setRiskLevel } from "../redux/actions";
 import data from "../data.json";
+import { State } from "../types";
 
 export default function RiskLevelTable() {
-  const actualRiskLevel = useSelector((state) => state.riskLevel);
+  const actualRiskLevel = useSelector((state: State) => state.riskLevel);
   const dispatch = useDispatch();
-  const setRiskLevelClick = (riskLevel) => dispatch(setRiskLevel(riskLevel));
+  const setRiskLevelClick = (riskLevel: number) =>
+    dispatch(setRiskLevel(riskLevel));
   return (
     <table className="table text-center mx-auto table-bordered align-middle">
       <thead>

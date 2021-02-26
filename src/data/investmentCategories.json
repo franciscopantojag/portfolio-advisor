@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Bonds"
+  },
+  {
+    "id": 2,
+    "name": "Large Cap"
+  },
+  {
+    "id": 3,
+    "name": "Mid Cap"
+  },
+  {
+    "id": 4,
+    "name": "Foreign"
+  },
+  {
+    "id": 5,
+    "name": "Small Cap"
+  }
+]

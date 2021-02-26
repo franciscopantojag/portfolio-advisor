@@ -2,10 +2,12 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-labels";
 import { useSelector } from "react-redux";
+
 import data from "../data.json";
+import { State } from "../types";
 
 export default function DonutChart() {
-  const actualRiskLevel = useSelector((state) => state.riskLevel);
+  const actualRiskLevel = useSelector((state: State) => state.riskLevel);
   const actualRiskLevelObj = data.riskLevels.find(
     (riskObj) => riskObj.level === actualRiskLevel
   );
@@ -22,9 +24,7 @@ export default function DonutChart() {
           },
           plugins: {
             labels: {
-              render: (args) => {
-                return args.label;
-              },
+              render: "label",
               fontColor: "#fff",
               fontSize: 15,
             },
@@ -36,11 +36,11 @@ export default function DonutChart() {
               data:
                 typeof actualRiskLevel == "number"
                   ? [
-                      actualRiskLevelObj.bonds,
-                      actualRiskLevelObj.large_cap,
-                      actualRiskLevelObj.mid_cap,
-                      actualRiskLevelObj.foreign,
-                      actualRiskLevelObj.small_cap,
+                      actualRiskLevelObj!.bonds,
+                      actualRiskLevelObj!.large_cap,
+                      actualRiskLevelObj!.mid_cap,
+                      actualRiskLevelObj!.foreign,
+                      actualRiskLevelObj!.small_cap,
                     ]
                   : [100],
               backgroundColor: [

@@ -3,13 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { setRiskLevel } from "../redux/actions";
 import data from "../data.json";
 import { Link } from "react-router-dom";
+import { State } from "../types";
 
 export default function RiskLevelBar() {
-  const riskLevel = useSelector((state) => state.riskLevel);
+  const riskLevel = useSelector((state: State) => state.riskLevel);
   const dispatch = useDispatch();
   const numButtons = {
     arr: data.riskLevels.map((riskLevel) => riskLevel.level),
-    click: (riskLevel) => dispatch(setRiskLevel(riskLevel)),
+    click: (riskLevel: number) => {
+      dispatch(setRiskLevel(riskLevel));
+    },
   };
   return (
     <div className="d-flex">

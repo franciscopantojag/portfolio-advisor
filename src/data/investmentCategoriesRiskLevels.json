@@ -1,0 +1,252 @@
+[
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 1,
+    "percentage": 80
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 1,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 1,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 1,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 1,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 2,
+    "percentage": 70
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 2,
+    "percentage": 15
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 2,
+    "percentage": 15
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 2,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 2,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 3,
+    "percentage": 60
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 3,
+    "percentage": 15
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 3,
+    "percentage": 15
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 3,
+    "percentage": 10
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 3,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 4,
+    "percentage": 50
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 4,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 4,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 4,
+    "percentage": 10
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 4,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 5,
+    "percentage": 40
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 5,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 5,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 5,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 5,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 6,
+    "percentage": 35
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 6,
+    "percentage": 25
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 6,
+    "percentage": 5
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 6,
+    "percentage": 30
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 6,
+    "percentage": 5
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 7,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 7,
+    "percentage": 25
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 7,
+    "percentage": 25
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 7,
+    "percentage": 25
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 7,
+    "percentage": 5
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 8,
+    "percentage": 10
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 8,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 8,
+    "percentage": 40
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 8,
+    "percentage": 20
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 8,
+    "percentage": 10
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 9,
+    "percentage": 5
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 9,
+    "percentage": 15
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 9,
+    "percentage": 40
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 9,
+    "percentage": 25
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 9,
+    "percentage": 15
+  },
+  {
+    "investmentCategoryId": 1,
+    "riskLevelId": 10,
+    "percentage": 0
+  },
+  {
+    "investmentCategoryId": 2,
+    "riskLevelId": 10,
+    "percentage": 5
+  },
+  {
+    "investmentCategoryId": 3,
+    "riskLevelId": 10,
+    "percentage": 25
+  },
+  {
+    "investmentCategoryId": 4,
+    "riskLevelId": 10,
+    "percentage": 30
+  },
+  {
+    "investmentCategoryId": 5,
+    "riskLevelId": 10,
+    "percentage": 40
+  }
+]

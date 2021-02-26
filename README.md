@@ -1,4 +1,4 @@
-# Portfolio Recommender
+# Portfolio Advisor
 
 ## Installation/Run
 

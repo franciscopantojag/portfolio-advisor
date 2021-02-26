@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import data from "../data.json";
+import { State } from "../types";
 
 export default function SingleRiskLevelTable() {
-  const actualRiskLevel = useSelector((state) => state.riskLevel);
+  const actualRiskLevel = useSelector((state: State) => state.riskLevel);
   const actualRiskLevelObj = data.riskLevels.find(
     (riskObj) => riskObj.level === actualRiskLevel
   );
@@ -24,13 +25,13 @@ export default function SingleRiskLevelTable() {
       <tbody>
         <tr className="text-end">
           <th scope="row" className="text-center">
-            {actualRiskLevelObj.level}
+            {actualRiskLevelObj?.level}
           </th>
-          <td>{actualRiskLevelObj.bonds}</td>
-          <td>{actualRiskLevelObj.large_cap}</td>
-          <td>{actualRiskLevelObj.mid_cap}</td>
-          <td>{actualRiskLevelObj.foreign}</td>
-          <td>{actualRiskLevelObj.small_cap}</td>
+          <td>{actualRiskLevelObj?.bonds}</td>
+          <td>{actualRiskLevelObj?.large_cap}</td>
+          <td>{actualRiskLevelObj?.mid_cap}</td>
+          <td>{actualRiskLevelObj?.foreign}</td>
+          <td>{actualRiskLevelObj?.small_cap}</td>
         </tr>
       </tbody>
     </table>
